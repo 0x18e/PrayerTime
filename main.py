@@ -6,27 +6,27 @@ import pyfiglet
 import random
 #halal
 num = random.randint(0, 1)
-font = 
-if num == 1
-    font = starwars
-if num == 0
-    font = speed
-result = pyfiglet.figlet_format(Prayer Timer, font=font)
+font = ""
+if num == 1:
+    font = "starwars"
+if num == 0:
+    font = "speed"
+result = pyfiglet.figlet_format("Prayer Timer", font=font)
 print(result)
-islamic_site = 'httpswww.islamicfinder.orgworldkuwait285787kuwait-city-prayer-times'
-with requests.session() as req
+islamic_site = 'https://www.islamicfinder.org/world/kuwait/285787/kuwait-city-prayer-times/'
+with requests.session() as req:
 
     islamic_page = req.get(islamic_site)
-    if islamic_page.status_code == 400
-        print(run program again)
-    elif islamic_page.status_code == 200
-        while True
+    if islamic_page.status_code == 400:
+        print("run program again")
+    elif islamic_page.status_code == 200:
+        while True:
             sleep(1)
-            currentTime = datetime.datetime.now().strftime(%I%M %p)
+            currentTime = datetime.datetime.now().strftime("%I:%M %p")
 
             soup = BeautifulSoup(islamic_page.content, 'html.parser');
 
-            prayer_table = soup.select(div.prayerTiles)
+            prayer_table = soup.select("div.prayerTiles")
 
             fajr = prayer_table[0]
             dhuhr = prayer_table[2]
@@ -36,15 +36,15 @@ with requests.session() as req
 
 
             tableDict = {
-                'fajr' fajr,
-                'dhuhr' dhuhr,
-                'asr' asr,
-                'maghrib' maghrib,
-                'isha' isha,
+                'fajr': fajr,
+                'dhuhr': dhuhr,
+                'asr': asr,
+                'maghrib': maghrib,
+                'isha': isha,
             }
-            for prayername, prayertime in tableDict.items()
+            for prayername, prayertime in tableDict.items():
                 time = prayertime.select_one('.prayertime').text.strip()
-                if (currentTime == time)
+                if (currentTime == time):
                     print(f'{time} {currentTime}')
                     print(f'TIME FOR {prayername} PRAYER')
 
