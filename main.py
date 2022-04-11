@@ -5,6 +5,7 @@ from time import sleep
 import pyfiglet
 import random
 #halal
+#test
 num = random.randint(0, 1)
 font = ""
 if num == 1:
