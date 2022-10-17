@@ -1,5 +1,6 @@
 beautifulsoup4
 datetime
 pyfiglet
-requests
+requests  
+playsound
 ########
